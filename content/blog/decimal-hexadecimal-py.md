@@ -1,0 +1,65 @@
+---
+external: false
+draft: false
+title: Decimal to HexDecimal converter using python
+description: This post is a draft and won't be built.
+date: 2022-11-22
+---
+# Converting Decimal to Hexadecimal using Python
+
+Converting decimal numbers to hexadecimal is a common task in programming, especially when dealing with memory addresses, color codes, or other low-level operations. Python provides a straightforward way to achieve this conversion, and in this blog, we'll explore different methods to convert decimal numbers to hexadecimal using Python.
+
+## Understanding Decimal and Hexadecimal Number Systems
+
+Before we dive into the code, let's briefly understand the decimal and hexadecimal number systems.
+
+1. **Decimal Number System:** The decimal system, also known as the base-10 system, is the most commonly used number system. It uses ten symbols (0-9) to represent numbers and is based on powers of 10.
+
+2. **Hexadecimal Number System:** The hexadecimal system, also known as the base-16 system, uses sixteen symbols (0-9 and A-F) to represent numbers. Hexadecimal digits represent values from 0 to 15, and each digit position represents a power of 16.
+
+## Converting Decimal to Hexadecimal in Python
+
+### Method 1: Using the built-in `hex()` function
+
+Python's built-in `hex()` function makes it easy to convert decimal numbers to their hexadecimal representation. The function takes an integer as input and returns a string with the '0x' prefix representing the hexadecimal value.
+
+```python
+def decimal_to_hex(decimal_num):
+    return hex(decimal_num)
+
+# Example Usage
+decimal_num = 255
+hex_value = decimal_to_hex(decimal_num)
+print(f"The hexadecimal representation of {decimal_num} is {hex_value}.")
+```
+
+### Method 2: Using Custom Function
+
+If you prefer a custom approach without relying on built-in functions, you can implement a simple algorithm to convert decimal to hexadecimal manually.
+
+```python
+def decimal_to_hex(decimal_num):
+    hex_digits = "0123456789ABCDEF"
+    hex_value = ""
+
+    if decimal_num == 0:
+        return "0"
+
+    while decimal_num > 0:
+        remainder = decimal_num % 16
+        hex_value = hex_digits[remainder] + hex_value
+        decimal_num //= 16
+
+    return "0x" + hex_value
+
+# Example Usage
+decimal_num = 255
+hex_value = decimal_to_hex(decimal_num)
+print(f"The hexadecimal representation of {decimal_num} is {hex_value}.")
+```
+
+## Conclusion
+
+Converting decimal to hexadecimal in Python is a breeze, thanks to the built-in `hex()` function or the simple custom algorithm. Whether you need to work with memory addresses, color codes, or any other hexadecimal representations, Python offers flexibility and ease of use.
+
+Now you have the knowledge and tools to confidently convert decimal numbers to hexadecimal in Python. Feel free to experiment with different decimal values and explore more about number systems to deepen your understanding. Happy coding!
