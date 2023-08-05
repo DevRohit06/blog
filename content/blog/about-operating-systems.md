@@ -2,7 +2,7 @@
 external: false
 draft: false
 title: Everything About Operating Systems
-description: All the information about Operating Systems
+description: An operating system is a software program that manages computer hardware and software resources and provides services for computer programs. It serves as a crucial link between applications and hardware components, allowing software to interact with the underlying system and utilize resources such as memory, storage, and processing power effectively.
 ogImagePath: https://artoftesting.com/wp-content/uploads/2022/02/operating-system.png
 date: 2023-08-01
 ---

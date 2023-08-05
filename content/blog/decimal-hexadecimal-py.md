@@ -4,7 +4,7 @@ draft: false
 language: python
 tags: ["python", "decimal", "hexadecimal"]
 title: Decimal to HexDecimal converter using python
-description: This post is a draft and won't be built.
+description: Converting decimal numbers to hexadecimal is a common task in programming, especially when dealing with memory addresses, color codes, or other low-level operations. Python provides a straightforward way to achieve this conversion, and in this blog, we'll explore different methods to convert decimal numbers to hexadecimal using Python.
 ogImagePath: https://www.webasha.com/uploads/course/images/633adacde08e81664801485.python-Training-and-certification.jpg
 date: 2023-08-03
 ---
