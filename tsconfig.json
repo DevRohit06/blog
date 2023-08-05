@@ -2,7 +2,11 @@
   "extends": "astro/tsconfigs/strict",
   "display": "theme/sleek",
   "compilerOptions": {
-    "types": ["astro/client"],
-    "baseUrl": "."
+    "types": [
+      "astro/client"
+    ],
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

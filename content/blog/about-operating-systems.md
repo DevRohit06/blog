@@ -4,7 +4,7 @@ draft: false
 title: Everything About Operating Systems
 description: All the information about Operating Systems
 ogImagePath: https://artoftesting.com/wp-content/uploads/2022/02/operating-system.png
-date: 2023-08-05
+date: 2023-08-01
 ---
 
 # Exploring the World of Operating Systems: An Overview of Types and Their Roles

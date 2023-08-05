@@ -1,6 +1,8 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import DarkModeToggle from "./DarkModeToggle.astro";
+  
+
 ---
 
 
@@ -8,7 +10,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
     <section class="relative mx-auto">
       <!-- navbar -->
       <nav
-        class="justify-between dark:bg-transparent bg-white dark:text-white text-black"
+        class="flex-col justify-between dark:bg-transparent bg-white dark:text-white text-black"
       >
         <div class="py-4 flex items-center justify-between">
           <a
@@ -30,7 +32,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
           <div class="unset hidden md:flex items-center xl:justify-end">
             <a
               class="unset text-xl ml-4 hover:text-text-link"
-              href="https://github.com/flexdinesh/blogster"
+              href="https://github.com/DevRohit06/blog"
             >
               <i
                 class="fa-brands fa-github"
@@ -38,7 +40,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
                 title="Blogster on GitHub"></i>
               <span class="fa-sr-only">Blogster on GitHub</span>
             </a>
-            <a
+            <!-- <a
               class="unset text-xl ml-4 hover:text-text-link"
               href="https://twitter.com/flexdinesh"
             >
@@ -47,12 +49,12 @@ import DarkModeToggle from "./DarkModeToggle.astro";
                 aria-hidden="true"
                 title="Dinesh on Twitter"></i>
               <span class="fa-sr-only">Dinesh on Twitter</span>
-            </a>
+            </a> -->
             
           </div>
           <div class="flex ">
             <DarkModeToggle />
-            <a class="unset navbar-burger self-center md:hidden ml-3" href="#">
+            <a id="menu" class="unset navbar-burger self-center md:hidden ml-3" href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6 hover:text-gray-500"
@@ -71,8 +73,25 @@ import DarkModeToggle from "./DarkModeToggle.astro";
         </div>
         <!-- Responsive navbar -->
 
-       
+      
+        <div class="text-center menu hidden sm:hidden">
+          <ul
+          class="unset flex-col justify-center items-center  font-semibold font-heading "
+        >
+          <li class="p-2 hover:bg-black rounded-xl"><HeaderLink href="/">Home</HeaderLink></li>
+          <li class="p-2 hover:bg-black rounded-xl"><HeaderLink href="/blog">Blog</HeaderLink></li>
+          <li class="p-2 hover:bg-black rounded-xl"><HeaderLink href="/projects">Projects</HeaderLink></li>
+        </ul>
+        </div>
       </nav>
     </section>
   </div>
 
+  <script>
+    const menuButton = document.getElementById("menu");
+    menuButton?.addEventListener("click", () => {
+      [...document.querySelectorAll(".menu")].forEach((Element) => {
+        Element.classList.toggle("hidden");
+      });
+    });
+  </script>
