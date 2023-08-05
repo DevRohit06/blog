@@ -8,6 +8,18 @@
     Why colors are written in rgb format (255 255 255) instead of hex (#ffffff)
     https://tailwindcss.com/docs/customizing-colors#using-css-variables 
 */
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+body::-webkit-scrollbar-track {
+    background-color: transparent ; 
+}
+body::-webkit-scrollbar-thumb {
+     @apply bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main ;
+    border-radius: 20px; 
+  }
+
+
 @layer base {
 
     /* light theme */

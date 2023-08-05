@@ -21,7 +21,7 @@ const sortedPosts = posts
     <h1 class="font-semibold md:text-3xl mb-4 p-2">Latest Blogs</h1>
     <a href="/blog" class="unset mb-4 p-2 text-blue-400 text-sm">View More</a>
    </div>
-    <div class="gap-4 flex flex-1 flex-wrap">
+    <div class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start">
       {
         sortedPosts.slice(0, 3).map((post) => {
           const formattedDate = new Date(
