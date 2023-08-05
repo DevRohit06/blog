@@ -21,8 +21,9 @@ const sortedProjects = projects
 
 <PageLayout>
   <PageMeta title={`Projects | ${SITE_TITLE}`} slot="meta" />
-  <section slot="main">
-    <ul>
+  <section slot="main" class="">
+    <div class="gap-6 flex flex-1 flex-wrap">
+
       {
         sortedProjects.map((project) => {
           const formattedDate = new Date(
@@ -33,28 +34,59 @@ const sortedProjects = projects
             day: "numeric",
           });
           return (
-            <li class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start">
-              <div class="title">
-                <a
-                  href={project.frontmatter.url}
-                  target="_blank"
-                  class="unset hover:text-text-link"
-                >
-                  <span>{project.frontmatter.title}</span>
-                  <span>
-                    <i class="ml-1 mr-1 text-[12px] pb-2 fa-solid fa-up-right-from-square" />
-                  </span>
-                </a>
-              </div>
-              <div class="text-text-muted text-sm italic pt-1">
-                <time datetime={project.frontmatter.date.toISOString()}>
-                  {formattedDate}
-                </time>
-              </div>
-            </li>
+            // <li class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start">
+            //   <div class="title">
+            //     <a
+            //       href={project.frontmatter.url}
+            //       target="_blank"
+            //       class="unset hover:text-text-link"
+            //     >
+            //       <span>{project.frontmatter.title}</span>
+            //       <span>
+            //         <i class="ml-1 mr-1 text-[12px] pb-2 fa-solid fa-up-right-from-square" />
+            //       </span>
+            //     </a>
+            //   </div>
+            //   <div class="text-text-muted text-sm italic pt-1">
+            //     <time datetime={project.frontmatter.date.toISOString()}>
+            //       {formattedDate}
+            //     </time>
+            //   </div>
+            // </li>
+            <article class="w-96 relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+              <a href={`${project.frontmatter.url}`}>
+                {
+                  project.frontmatter.ogImagePath &&
+                  <div class="absolute inset-0">
+                    <img
+                      src={project.frontmatter.ogImagePath}
+                      alt={project.frontmatter.title}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                }
+
+                <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 w-full h-full">
+                  <div class="p-4 sm:p-6">
+                    <time
+                      datetime={project.frontmatter.date.toISOString()}
+                      class="block text-xs text-white/90"
+                    >
+                      {formattedDate}
+                    </time>
+
+                    <a href={`${project.frontmatter.url}`}>
+                      <h3 class="mt-0.5 text-lg text-white">
+                        {project.frontmatter.title}
+                      </h3>
+                    </a>
+                  </div>
+                </div>
+              </a>
+            </article>
           );
         })
       }
-    </ul>
+    </div>
   </section>
 </PageLayout>
