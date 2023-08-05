@@ -20,7 +20,7 @@ export interface Props {
   ogImagePath?: string;
 }
 
-const { title, date, ogImagePath} = Astro.props;
+const { title, date, ogImagePath } = Astro.props;
 const formattedDate = new Date(date).toLocaleDateString("en-us", {
   year: "numeric",
   month: "short",
@@ -40,32 +40,30 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
     <GoogleFont />
     <ThemeScript />
     <FontAwesome />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7DPYHPJNT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7DPYHPJNT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-E7DPYHPJNT');
-</script>
+      gtag("config", "G-E7DPYHPJNT");
+    </script>
   </head>
 
-  <body
-    class=""
-  >
-  <Header />
+  <body class="">
+    <Header />
     <main class="min-h-screen max-w-3xl mx-auto px-6 sm:px-8" id="main">
       <section class="blog-post prose max-w-none prose-sleek">
-        <img src={ogImagePath} alt={title} class="rounded-lg shadow">
+        <img src={ogImagePath} alt={title} class="rounded-lg shadow" />
         <h1 class="mt-[2rem] mb-[0.25em]">{title}</h1>
         <time class="block mb-[2em] text-text-muted">{formattedDate}</time>
         <slot name="content" />
       </section>
     </main>
     <Footer />
-    <style>
-
-
-    </style>
+    <style></style>
   </body>
 </html>

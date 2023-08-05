@@ -29,24 +29,24 @@ import Footer from "../components/Footer.astro";
     <GoogleFont />
     <ThemeScript />
     <FontAwesome />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7DPYHPJNT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7DPYHPJNT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-E7DPYHPJNT');
-</script>
+      gtag("config", "G-E7DPYHPJNT");
+    </script>
   </head>
 
-  <body
-    class=""
-  >
+  <body class="">
     <Header />
     <main class="w-5/6 mx-auto" id="main">
       <slot name="main" />
     </main>
     <Footer />
-
   </body>
 </html>
