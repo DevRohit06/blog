@@ -1,4 +1,21 @@
 ---
+import { readAll } from "../lib/markdoc/read";
+import { blog } from "../lib/markdoc/frontmatter.schema";
+import PageLayout from "../layouts/PageLayout.astro";
+import PageMeta from "../components/PageMeta.astro";
+import { SITE_TITLE } from "../config";
+const posts = await readAll({
+  directory: "blog",
+  frontmatterSchema: blog,
+});
+
+const sortedPosts = posts
+  .filter((p) => p.frontmatter.draft !== true)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );
 ---
 
 <section class="mt-[4rem] mb-8 text-center">
@@ -9,15 +26,16 @@
       <span
         class="bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent "
       >
-        Rohit Kushwaha
+        Welcome to DevBlogs
       </span>
     </h1>
-    <p class="text-2xl pb-4">Web Developer. Cloud Support Engineer. Blogger.</p>
+    <p class="text-2xl pb-4">All About Technology</p>
   </div>
   <div>
     <p class="mb-5">
-      Building the Front-end of Websites and Web Applications that leads to the success of the overall product. 
+      All concepts of technology are explained in a simple way. You can learn about Computer Science, Web Development, Programming, and many more.
     </p>
    
   </div>
 </section>
+
