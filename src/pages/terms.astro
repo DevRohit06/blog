@@ -1,0 +1,125 @@
+---
+import PageMeta from "../components/PageMeta.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE_TITLE } from "../config";
+import { Heading, ClassText, SubHeading } from "./privacy.astro";
+---
+
+<PageLayout>
+  <PageMeta title={`Terms & Condition`} slot="meta" />
+  <Fragment slot="main">
+    <section>
+      <div>
+        <h1 class=`mb-4 text-3xl font-black ${ClassText}`>
+          Terms and Conditions
+        </h1>
+        <p class="mb-8">
+          Welcome to DevBlogs! These Terms and Conditions govern your use of our
+          website (www.devblogs.com) and the services offered on it. By
+          accessing or using DevBlogs, you agree to be bound by these Terms and
+          Conditions. Please read them carefully before using our website.
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>1. Use of DevBlogs</h1>
+        <p class="mb-2">
+          1.1. Eligibility: You must be at least 13 years old to use DevBlogs.
+          If you are under 18, you may use DevBlogs only with the involvement
+          and consent of a parent or legal guardian.
+          <br />
+          1.2. Account Creation: To access certain features of DevBlogs, you may
+          need to create an account. You are responsible for providing accurate and
+          complete information during the registration process and keeping your account
+          credentials secure.
+          <br />
+          1.3. User Content: You are solely responsible for any content you post
+          or submit on DevBlogs, including articles, comments, and profile information.
+          By posting content, you grant DevBlogs a non-exclusive, worldwide, royalty-free
+          license to use, display, and distribute your content on our website.
+          <br />
+          1.4. Prohibited Conduct: When using DevBlogs, you agree not to:
+
+          <ul class="mb-8">
+            <li>Violate any applicable laws or regulations</li>
+            <li>Infringe upon the intellectual property rights of others</li>
+            <li>Post harmful, abusive, or offensive content</li>
+            <li>Engage in spamming or unauthorized advertising</li>
+            <li>
+              Attempt to access or interfere with the website's backend systems
+              or security features
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>2. Intellectual Property</h1>
+        <p class="mb-8">
+          2.1. Ownership: DevBlogs and its content, including but not limited to
+          text, graphics, images, logos, and software, are the property of
+          DevBlogs or its licensors and are protected by copyright, trademark,
+          and other intellectual property laws.
+          <br />
+          2.2. License: DevBlogs grants you a limited, non-exclusive, non-transferable,
+          and revocable license to access and use our website and services for personal,
+          non-commercial purposes. You may not use our content for any other purpose
+          without our express written consent.
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>3. Third-Party Links and Content</h1>
+        <p class="mb-8">
+          3.1. Third-Party Links: DevBlogs may contain links to third-party websites, services, or content that are not owned or controlled by us. We do not endorse or assume any responsibility for the content, privacy policies, or practices of third-party sites or services.
+<br>
+3.2. Third-Party Content: Any content provided by third parties on DevBlogs, including guest posts and advertisements, is the sole responsibility of the respective authors or providers.
+
+
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>4. Disclaimer of Warranties</h1>
+        <p class="mb-8">
+          4.1. DevBlogs is provided on an "as is" and "as available" basis, without any warranties, express or implied. We do not guarantee that our website will be error-free, secure, or continuously available.
+<br>
+4.2. DevBlogs does not provide professional advice. Any information or content on the website is for general informational purposes only and should not be considered as professional advice or guidance.
+
+
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>5. Limitation of Liability</h1>
+        <p class="mb-8">
+          5.1. To the extent permitted by applicable law, DevBlogs and its affiliates, officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with the use of or inability to use DevBlogs.
+
+
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>6. Changes to the Terms and Conditions
+        </h1>
+        <p class="mb-8">
+          6.1. DevBlogs may update these Terms and Conditions from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will post the updated Terms and Conditions on this page with the revised effective date.
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>7. Governing Law</h1>
+        <p class="mb-8">
+          7.1. These Terms and Conditions shall be governed by and construed in accordance with the laws of [Your Country/Region].
+        </p>
+      </div>
+      <div>
+        <h1 class=`${SubHeading} ${ClassText}`>8. Contact Us</h1>
+        <p class="mb-8">
+          8.1. If you have any questions or concerns about these Terms and Conditions or our practices, please contact us at [contact@devblogs.com].
+        </p>
+      </div>
+      <div>
+        <h1 class=`${Heading} ${ClassText} `>Acceptance of Privacy Policy</h1>
+        <p class="mb-8">
+          By using DevBlogs, you signify your acceptance of this Privacy Policy.
+          If you do not agree with the terms of this Privacy Policy, please do
+          not use our website or services.
+        </p>
+      </div>
+    </section>
+  </Fragment>
+</PageLayout>

@@ -1,11 +1,10 @@
 ---
-import sun from '../assets/images/sun.png'
-import moon from '../assets/images/moon.png'
+
 ---
 
-<mode-toggle class="flex">
+<mode-toggle class="flex ">
   <button
-  class="justify-self-end bg-neutral-300 dark:bg-neutral-700 ml-4 inline-flex h-6 w-12 items-center rounded-full"
+  class="justify-self-end bg-neutral-300 dark:bg-neutral-800 ml-4 inline-flex h-6 w-[54px] items-center rounded-full border-2 border-white border-opacity-30 "
   id="mode-toggle"
   role="switch"
   type="button"
@@ -106,6 +105,7 @@ import moon from '../assets/images/moon.png'
     transform: translateX(0.25rem);
     background-image: url("../assets/images/day.png");
     background-size: contain;
+    background-repeat: no-repeat;
 
   }
   .dark {
