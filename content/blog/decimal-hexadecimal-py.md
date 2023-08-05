@@ -3,6 +3,7 @@ external: false
 draft: false
 title: Decimal to HexDecimal converter using python
 description: This post is a draft and won't be built.
+ogImagePath: https://blog.hyperiondev.com/wp-content/uploads/2017/12/py_machine.jpg
 date: 2022-11-22
 ---
 # Converting Decimal to Hexadecimal using Python

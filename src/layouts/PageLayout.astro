@@ -32,26 +32,13 @@ import Footer from "../components/Footer.astro";
   </head>
 
   <body
-    class="min-h-screen max-w-3xl mx-auto px-6 sm:px-8"
+    class=""
   >
     <Header />
-    <main id="main">
+    <main class="w-5/6 mx-auto" id="main">
       <slot name="main" />
     </main>
     <Footer />
-    <style>
-      body {
-        display: grid;
-        grid-template-areas:
-          "header"
-          "main"
-          "footer";
-        grid-template-rows: 5rem minmax(0, 1fr) 5rem;
-        grid-template-columns: minmax(0, 1fr);
-      }
-      main {
-        grid-area: main;
-      }
-    </style>
+
   </body>
 </html>

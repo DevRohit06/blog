@@ -3,56 +3,73 @@ import HeaderLink from "./HeaderLink.astro";
 import DarkModeToggle from "./DarkModeToggle.astro";
 ---
 
-<header>
-  <a
-    class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]"
-    href="#main"
-  >
-    Skip to content
-  </a>
-  <nav>
-    <section class="text-text-bold">
-      <ul class="unset flex gap-4 [&>li]:p-0">
-        <li><HeaderLink href="/">Home</HeaderLink></li>
-        <li><HeaderLink href="/blog">Blog</HeaderLink></li>
-        <li><HeaderLink href="/projects">Projects</HeaderLink></li>
-      </ul>
+
+  <div class=" px-8 items-center">
+    <section class="relative mx-auto">
+      <!-- navbar -->
+      <nav
+        class="justify-between dark:bg-transparent bg-white dark:text-white text-black"
+      >
+        <div class="py-4 flex items-center justify-between">
+          <a
+            class=" unset text-3xl font-heading font-black bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent"
+            href="/"
+          >
+            <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+            DevBlogs
+          </a>
+          <!-- Nav Links -->
+          <ul
+            class="unset hidden md:flex  mx-auto font-semibold font-heading "
+          >
+            <li><HeaderLink href="/">Home</HeaderLink></li>
+            <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+            <li><HeaderLink href="/projects">Projects</HeaderLink></li>
+          </ul>
+          <!-- Header Icons -->
+          <div class="unset hidden md:flex items-center xl:justify-end">
+            <a
+              class="unset text-xl ml-4 hover:text-text-link"
+              href="https://github.com/flexdinesh/blogster"
+            >
+              <i
+                class="fa-brands fa-github"
+                aria-hidden="true"
+                title="Blogster on GitHub"></i>
+              <span class="fa-sr-only">Blogster on GitHub</span>
+            </a>
+            <a
+              class="unset text-xl ml-4 hover:text-text-link"
+              href="https://twitter.com/flexdinesh"
+            >
+              <i
+                class="fa-brands fa-twitter"
+                aria-hidden="true"
+                title="Dinesh on Twitter"></i>
+              <span class="fa-sr-only">Dinesh on Twitter</span>
+            </a>
+            <DarkModeToggle />
+          </div>
+          <a class="unset navbar-burger self-center md:hidden" href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 hover:text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </a>
+        </div>
+        <!-- Responsive navbar -->
+
+       
+      </nav>
     </section>
-  </nav>
-  <div
-    class="max-[375px]:hidden justify-self-end py-2 flex items-center content-center text-text-bold"
-  >
-    <a
-      class="unset text-xl ml-4 hover:text-text-link"
-      href="https://github.com/flexdinesh/blogster"
-    >
-      <i
-        class="fa-brands fa-github"
-        aria-hidden="true"
-        title="Blogster on GitHub"></i>
-      <span class="fa-sr-only">Blogster on GitHub</span>
-    </a>
-    <a
-      class="unset text-xl ml-4 hover:text-text-link"
-      href="https://twitter.com/flexdinesh"
-    >
-      <i
-        class="fa-brands fa-twitter"
-        aria-hidden="true"
-        title="Dinesh on Twitter"></i>
-      <span class="fa-sr-only">Dinesh on Twitter</span>
-    </a>
   </div>
-  <DarkModeToggle />
-</header>
-<style>
-  header {
-    grid-area: header;
-    display: grid;
-    align-items: center;
-    grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(
-        0,
-        max-content
-      );
-  }
-</style>
+
