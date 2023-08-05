@@ -5,7 +5,7 @@ language: python
 tags: ["python", "decimal", "hexadecimal"]
 title: Decimal to HexDecimal converter using python
 description: This post is a draft and won't be built.
-ogImagePath: https://blog.hyperiondev.com/wp-content/uploads/2017/12/py_machine.jpg
+ogImagePath: https://www.webasha.com/uploads/course/images/633adacde08e81664801485.python-Training-and-certification.jpg
 date: 2022-11-22
 ---
 # Converting Decimal to Hexadecimal using Python
