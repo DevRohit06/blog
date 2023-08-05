@@ -38,7 +38,7 @@ const sortedPosts = posts
             if (counter < 3) {
                 return (
             <article class="w-5/6 md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-              <a href={`/blogs/${post.slug}`} aria-label={post.frontmatter.description}>
+              <a href={`/blog/${post.slug}`} aria-label={post.frontmatter.description}>
                 {
                     post.frontmatter.ogImagePath && (
                         <div class="absolute inset-0">
@@ -53,12 +53,12 @@ const sortedPosts = posts
 
                 <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 w-full h-full">
                   <div class="p-4 sm:p-6">
-                    <time
-                      datetime="2022-10-10"
+                    <span
+                      
                       class="block text-xs text-white/90 mb-4"
                     >
                       {formattedDate}
-                    </time>
+                    </snap>
 
                     <a href={`/blog/${post.slug}`}>
                       <h1 class=" text-xl text-white">
