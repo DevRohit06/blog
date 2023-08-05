@@ -8,9 +8,7 @@
     Why colors are written in rgb format (255 255 255) instead of hex (#ffffff)
     https://tailwindcss.com/docs/customizing-colors#using-css-variables 
 */
-body{
-    @apply w-5/6 mx-auto;
-}
+
 body::-webkit-scrollbar {
     width: 0.5rem;
 }

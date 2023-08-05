@@ -1,5 +1,5 @@
 ---
-title: Introduction to Python
+title: Introduction to Python Programming
 description: Python is a high-level, interpreted, interactive, and object-oriented scripting language. Python is designed to be highly readable. It uses English keywords frequently, whereas other languages use punctuation, and it has fewer syntactical constructions than other languages.
 ogImagePath: https://miro.medium.com/v2/resize:fit:840/1*RJMxLdTHqVBSijKmOO5MAg.jpeg
 tags: ["python", "introduction"]
