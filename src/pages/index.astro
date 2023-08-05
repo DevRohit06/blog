@@ -3,13 +3,14 @@ import PageMeta from "../components/PageMeta.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 import Intro from "../components/Intro.astro";
 import AboutTheTheme from "../components/AboutTheTheme.astro";
+import BlogCards from "src/components/BlogCards.astro";
 import { SITE_TITLE } from "../config";
 ---
 
 <PageLayout>
-  <PageMeta title={`${SITE_TITLE} | DevBlogs`} slot="meta" />
+  <PageMeta title={`${SITE_TITLE}`} slot="meta" />
   <Fragment slot="main">
     <Intro />
-    <AboutTheTheme />
+    <BlogCards />
   </Fragment>
 </PageLayout>

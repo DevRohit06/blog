@@ -4,6 +4,7 @@ const baseSchema = z.object({
   draft: z.boolean().default(false),
   featured: z.boolean().default(false),
   ogImagePath: z.optional(z.string()),
+  tags: z.array(z.string()).default([]),
   title: z.string({
     required_error: "Required frontmatter missing: title",
     invalid_type_error: "title must be a string",
