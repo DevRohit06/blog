@@ -1,7 +1,8 @@
 ---
 external: false
 draft: false
-tags: [python, decimal, hexadecimal]
+language: python
+tags: ["python", "decimal", "hexadecimal"]
 title: Decimal to HexDecimal converter using python
 description: This post is a draft and won't be built.
 ogImagePath: https://blog.hyperiondev.com/wp-content/uploads/2017/12/py_machine.jpg

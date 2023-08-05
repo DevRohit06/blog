@@ -22,7 +22,7 @@ const sortedPosts = posts
 <PageLayout>
   <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
   <section slot="main" class="mx-auto">
-    <div class="gap-4 flex flex-1 flex-wrap justify-center">
+    <div class="gap-4 flex flex-1 flex-wrap ">
       {
         sortedPosts.map((post) => {
           const formattedDate = new Date(

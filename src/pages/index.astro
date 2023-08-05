@@ -5,12 +5,15 @@ import Intro from "../components/Intro.astro";
 import AboutTheTheme from "../components/AboutTheTheme.astro";
 import BlogCards from "src/components/BlogCards.astro";
 import { SITE_TITLE } from "../config";
+import TagCards from "src/components/TagCards.astro";
+
 ---
 
 <PageLayout>
   <PageMeta title={`${SITE_TITLE}`} slot="meta" />
   <Fragment slot="main">
     <Intro />
+    <!-- <TagCards tags="python" /> -->
     <BlogCards />
   </Fragment>
 </PageLayout>
