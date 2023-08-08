@@ -9,6 +9,10 @@
     https://tailwindcss.com/docs/customizing-colors#using-css-variables 
 */
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
 body::-webkit-scrollbar {
     width: 0.5rem;
 }
