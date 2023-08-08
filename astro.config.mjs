@@ -27,17 +27,17 @@ if (isBuild) {
 }
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
+  addPageExtension: '.mdx',
   server: {
-    port: SERVER_PORT,
+    port: SERVER_PORT
   },
   site: BASE_URL,
-  integrations: [
-    sitemap(),
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
-  ],
+  integrations: [sitemap(), tailwind({
+    config: {
+      applyBaseStyles: false
+    }
+  }),]
 });

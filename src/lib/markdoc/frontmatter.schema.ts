@@ -7,6 +7,7 @@ const baseSchema = z.object({
   tags: z.array(z.string()).default([]),
   language: z.optional(z.string()),
   description: z.optional(z.string()),
+  author: z.optional(z.string()),
   title: z.string({
     required_error: "Required frontmatter missing: title",
     invalid_type_error: "title must be a string",

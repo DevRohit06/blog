@@ -5,6 +5,8 @@ ogImagePath: https://miro.medium.com/v2/resize:fit:840/1*RJMxLdTHqVBSijKmOO5MAg.
 tags: ["python", "introduction"]
 date: 2023-08-04
 external: false
+author: "rohitk06"
+
 ---
 # Introduction to Python Programming
 

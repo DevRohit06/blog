@@ -39,7 +39,7 @@ const ogImageAbsoluteUrl =
     : undefined;
 ---
 
-<ContentLayout title={frontmatter.title} date={frontmatter.date} ogImagePath={frontmatter.ogImagePath}>
+<ContentLayout title={frontmatter.title} date={frontmatter.date} ogImagePath={frontmatter.ogImagePath} author={frontmatter.author}>
   <BlogPostMeta
     title={frontmatter.title}
     description={frontmatter.external ? undefined : frontmatter.description}

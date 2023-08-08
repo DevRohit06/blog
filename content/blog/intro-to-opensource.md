@@ -5,6 +5,8 @@ title: Introduction to Open Source Technology
 description: Open source technology has transformed the landscape of software development and beyond, ushering in an era of collaboration, innovation, and transparency. Unlike traditional closed-source software, open source projects operate under the ethos of sharing knowledge and allowing the public access to the source code. In this blog, we will embark on a deep dive into the concept of open source technology, its advantages, the differences between open source and closed source, and its transformative impact on the tech industry and society as a whole.
 ogImagePath: https://sagaratechnology.com/blog/wp-content/uploads/2021/11/open-source-software.png
 date: 2023-08-05
+author: "rohitk06"
+
 ---
 
 
