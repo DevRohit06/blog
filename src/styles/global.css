@@ -13,6 +13,11 @@
     box-sizing: border-box;
     margin: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar {
     width: 0.5rem;
 }
@@ -132,8 +137,7 @@ body::-webkit-scrollbar-thumb {
         background-repeat: no-repeat;
         background-size: 100% 1.5px;
         background-position: 0 100%;
-        background-image:
-            linear-gradient(to right, theme('colors.text.link'), theme('colors.text.link'));
+        
     }
 
     a:not(.unset):hover {

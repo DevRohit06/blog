@@ -18,6 +18,17 @@ author: "rohitk06"
 
 Open source technology has transformed the landscape of software development and beyond, ushering in an era of collaboration, innovation, and transparency. Unlike traditional closed-source software, open source projects operate under the ethos of sharing knowledge and allowing the public access to the source code. In this blog, we will embark on a deep dive into the concept of open source technology, its advantages, the differences between open source and closed source, and its transformative impact on the tech industry and society as a whole.
 
+## A Glimpse into Open Source's Past
+## The concept of open source technology has its origins in the late 20th century:
+
+### 1. The Hacker Culture (1950s - 1970s)
+In the early days of computing, enthusiasts and engineers collaborated freely, sharing code and knowledge. The spirit of exploration and collaboration set the stage for the open source movement.
+
+### 2. Richard Stallman and the Free Software Movement (1980s)
+Richard Stallman's Free Software Foundation (FSF) advocated for software that respects users' freedom. Stallman's GNU (GNU's Not Unix) project aimed to create a free and open-source operating system, laying the groundwork for open source licensing.
+
+### 3. Birth of Open Source (Late 1990s)
+In 1998, the term "open source" gained prominence with the formation of the Open Source Initiative (OSI). Led by Eric S. Raymond and Bruce Perens, OSI aimed to promote open source software through the Open Source Definition and open source licenses.
 ## What is Open Source Technology?
 
 Open source technology refers to software, hardware, or any technological solution whose source code or design is freely available to the public. This open availability enables developers to view, modify, and distribute the technology under the terms of the open source license.

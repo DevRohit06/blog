@@ -3,67 +3,48 @@ import { getAuthors, getSkills } from "src/lib/Authors";
 const { name } = Astro.props;
 const data = getAuthors(name);
 const skills = getSkills(name);
----
 
-<!-- <div class=" max-w-full flex bg-[#0f1824] rounded-xl mt-16 shadow-lg pb-4 sm:pb-0 sm:justify-start justify-center">
-  <div class="flex">
-    <div
-      class=" flex-1 sm:flex sm:flex-row items-center sm:justify-start justify-center flex flex-col"
-    >
-      <div class="flex px-4 py-4 ">
-        <img class="w-32 rounded-xl" src={data.profile} alt="" />
-      </div>
-     <div class="flex flex-col sm:flex-row ">
-      <div class="flex flex-col text-center sm:text-start ">
-        <h1 class="font-bold text-3xl">{data.name}</h1>
-        <h1 class="text-bold text-sm">{data.email}</h1>
-        <div class="">
-          {
-            skills?.map((skill) => {
-              return <span class="text-sm px-2 py-0.5 bg-gray-600 mr-1 rounded-xl">{skill}</span>;
-            })
-          }
+
+---
+<div class="flex flex-col  mt-32 gap-2">
+  <div class="dark:bg-[#0f1824] rounded-xl bg-slate-300  lg:mb-0">
+    <div class="flex sm:justify-between px-4 py-4 items-center justify-center flex-col sm:flex-row">
+      <div class="flex items-center flex-col sm:flex-row ">
+        <div class="w-32 rounded-xl pb-4 sm:pb-0">
+          <img class="rounded-xl" src={data.profile} alt="" />
+        </div>
+        <div class=" flex flex-col px-4 justify-center sm:text-start text-center">
+          <h1 class="font-bold text-3xl">{data.name}</h1>
+          <h1 class="text-sm">{data.email}</h1>
+          <div class="unset">
+            {
+              skills?.map((skill) => {
+                return <span class="text-white text-sm px-2 py-0.5 bg-gray-800 rounded-2xl mr-2">{skill}</span>;
+              })
+            }
+          </div>
         </div>
       </div>
-      <div class="flex justify-center sm:justify-between">
-        <ul class="unset flex sm:flex-col flex-row">
-          <li class="fa-brands fa-github py-2"></li>
-          <li class="fa-brands fa-github py-2"></li>
-          <li class="fa-brands fa-github py-2"></li>
-        </ul>
+      <div>
+        <div class="unset flex sm:flex-col flex-row ">
+          <a href="https://github.com/DevRohit06" class="unset fa-brands fa-github py-2 text-black dark:text-white"></a>
+          <a href="https://author.devblogs.xyz" class=" py-2 unset text-black dark:text-white dark px-2 sm:px-0 fa-brands fa-chrome">
+          </a>
+          <a href="https://instagram.com/rohitk.06" class="text-black dark:text-white unset py-2 fa-brands fa-instagram">
+  
+          </a>
+        </div>
       </div>
-     </div>
     </div>
   </div>
-</div> -->
-<div class="dark:bg-[#0f1824] rounded-xl bg-slate-300 mt-32">
-  <div class="flex sm:justify-between px-4 py-4 items-center justify-center flex-col sm:flex-row">
-    <div class="flex items-center flex-col sm:flex-row ">
-      <div class="w-32 rounded-xl pb-4 sm:pb-0">
-        <img class="rounded-xl" src={data.profile} alt="" />
-      </div>
-      <div class=" flex flex-col px-4 justify-center sm:text-start text-center">
-        <h1 class="font-bold text-3xl">{data.name}</h1>
-        <h1 class="text-sm">{data.email}</h1>
-        <div class="unset">
-          {
-            skills?.map((skill) => {
-              return <span class="text-white text-sm px-2 py-0.5 bg-gray-800 rounded-2xl mr-2">{skill}</span>;
-            })
-          }
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="unset flex sm:flex-col flex-row">
-        <a href="https://github.com/DevRohit06" class="unset fa-brands fa-github py-2"></a>
-        <a href="https://author.devblogs.xyz" class=" py-2 unset text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>
-        </a>
-        <a href="https://instagram.com/rohitk.06" class="unset py-2">
-          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-        </a>
-      </div>
+  <div class="dark:bg-[#0f1824] rounded-xl bg-slate-300 flex items-center justify-center">
+    <div class="px-2 flex py-8 text-center">
+      <button class=" flex unset text-sm text-slate-400 px-4 items-center text-center" onclick="window.print()">
+        <svg class="dark:fill-white fill-black mr-1" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+        Print Blog</button>
     </div>
   </div>
 </div>
+<script>
+
+</script>

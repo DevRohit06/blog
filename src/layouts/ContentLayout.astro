@@ -6,6 +6,7 @@
 
 // Import the global.css file here so that it is included on
 import "../styles/global.css";
+import "astro-breadcrumbs/breadcrumbs.css";
 import GoogleFont from "./GoogleFont.astro";
 import FontAwesome from "./FontAwesome.astro";
 import ThemeScript from "./ThemeScript.astro";
@@ -28,6 +29,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
   month: "short",
   day: "numeric",
 });
+import { Breadcrumbs } from "astro-breadcrumbs";
 ---
 
 <!DOCTYPE html>
@@ -44,27 +46,60 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
     <FontAwesome />
     <GoogleAds />
     <!-- <GoogleAnalytics /> -->
-
-
   </head>
 
   <body class="">
-
     <Header />
 
     <main class="min-h-screen max-w-3xl mx-auto px-6 sm:px-8" id="main">
- 
+      <div class="unset text-slate-400 pb-4">
+        <Breadcrumbs>
+          <svg
+            slot="index"
+            aria-label="Home Page"
+            class="unset"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+            </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            class="unset"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </Breadcrumbs>
+      </div>
       <section class="blog-post prose max-w-none prose-sleek">
+        
         <img src={ogImagePath} alt={title} class="rounded-lg shadow w-full" />
         <h1 class="mt-[2rem] mb-[0.25em]">{title}</h1>
-       <div class="flex">
-        <time class="block mb-[1.5em] text-text-muted">{formattedDate}</time>
-       </div>
+        <div class="flex">
+          <time class="block mb-[1.5em] text-text-muted">{formattedDate}</time>
+        </div>
         <slot name="content" />
       </section>
-      <Author name={author}/>
+      <Author name={author} />
     </main>
     <Footer />
-    <style></style>
+    <style>
+
+    </style>
   </body>
 </html>
