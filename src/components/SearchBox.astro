@@ -1,5 +1,5 @@
 <div class="mx-auto flex">
-    <div id="search" class="mx-auto md:w-5/6 p-4 -mt-8"></div>
+    <div id="search" class="mx-auto md:w-4/6 p-4 -mt-8"></div>
 
 </div>
 <script>
@@ -13,9 +13,8 @@
         zero_results: "Couldn't find [SEARCH_TERM]",
       },
       debounceTimeoutMs: 500,
-      processResult: function (result) {
-        result.meta.image = someCustomFunction(result.meta.image);
-        return result;
+      processResult: function (result: any) {
+        console.log(result);
     }
     });
   });
