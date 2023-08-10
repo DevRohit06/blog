@@ -1,0 +1,38 @@
+<div id="search" class="ml-3 p-4 -mt-8"></div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      resetStyles: false,
+      showImages: false,
+      translations: {
+        placeholder: "Search Blogs",
+        zero_results: "Couldn't find [SEARCH_TERM]",
+      },
+      debounceTimeoutMs: 500,
+    //   processResult: function (result) {
+    //     result.meta.image = someCustomFunction(result.meta.image);
+    //     return result;
+    // }
+    });
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "/" || event.key === ".") {
+      console.log("you pressed the slash");
+      event.preventDefault();
+      document.querySelector("div#search input").focus();
+    }
+  });
+</script>
+<style is:global>
+  .dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+  --pagefind-ui-text: #152028 ;
+</style>

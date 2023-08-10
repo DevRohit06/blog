@@ -12,6 +12,8 @@ import tailwind from "@astrojs/tailwind";
   and leave it empty or use localhost URL. It won't break anything.
 */
 import mdx from "@astrojs/mdx";
+import remarkToc from 'remark-toc';
+
 const SERVER_PORT = 3000;
 // the url to access your blog during local development
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
@@ -40,5 +42,12 @@ export default defineConfig({
     config: {
       applyBaseStyles: false
     }
-  }), mdx()]
+  }),
+  mdx({
+    syntaxHighlight: 'shiki',
+    shikiConfig: { theme: 'dracula' },
+    remarkPlugins: [remarkToc],
+    remarkRehype: { footnoteLabel: 'Footnotes' },
+    gfm: false,
+  }),]
 });

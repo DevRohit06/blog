@@ -161,6 +161,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     ul:not(.unset):not(:where([class~="prose"] *)) {
+        background-color: transparent;
         padding-left: 0;
         list-style: none;
     }
@@ -175,18 +176,22 @@ body::-webkit-scrollbar-thumb {
         left: 0;
         content: "»";
         color: rgb(var(--color-text-muted));
+        background-color: transparent;
     }
 
     ol:not(.unset):not(:where([class~="prose"] *)) {
+        background-color: transparent;
         padding-left: 1.125rem;
     }
 
     ol:not(.unset):not(:where([class~="prose"] *))>li::marker {
+        background-color: transparent;
         color: rgb(var(--color-text-muted))
     }
 
     ul:not(.unset):not(:where([class~="prose"] *))>li,
     ol:not(.unset):not(:where([class~="prose"] *))>li {
+        background-color: transparent;
         margin-top: 0.5em;
         margin-bottom: 0.5em;
     }

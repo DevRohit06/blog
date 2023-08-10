@@ -81,7 +81,9 @@ export async function readOne<T extends z.ZodTypeAny>({
   slug: string;
   frontmatterSchema: T;
 }) {
-  const filepath = path.join(contentDirectory, directory, `${slug}.md`);
+  
+  const filepath = path.join(contentDirectory, directory, `${slug}.mdx`);
+  
   return read({
     filepath,
     schema,
@@ -96,7 +98,7 @@ export async function readAll<T extends z.ZodTypeAny>({
   frontmatterSchema: T;
 }) {
   const pathToDir = path.posix.join(contentDirectory, directory);
-  const paths = await globby(`${pathToDir}/*.md`);
+  const paths = await globby(`${pathToDir}/*.{md,mdx}`);
 
   return Promise.all(paths.map((path) => read({ filepath: path, schema })));
 }

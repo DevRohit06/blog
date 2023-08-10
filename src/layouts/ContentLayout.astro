@@ -16,11 +16,12 @@ import Footer from "../components/Footer.astro";
 import GoogleAds from "./GoogleAds.astro";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
 import Author from "src/components/Author.astro";
+
 export interface Props {
   title: string;
   date: Date;
   ogImagePath?: string;
-  author: string;
+  author: any;
 }
 
 const { title, date, ogImagePath, author } = Astro.props;
@@ -45,6 +46,8 @@ import { Breadcrumbs } from "astro-breadcrumbs";
     <ThemeScript />
     <FontAwesome />
     <GoogleAds />
+    <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+		<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
     <!-- <GoogleAnalytics /> -->
   </head>
 
@@ -88,7 +91,7 @@ import { Breadcrumbs } from "astro-breadcrumbs";
       </div>
       <section class="blog-post prose max-w-none prose-sleek">
         
-        <img src={ogImagePath} alt={title} class="rounded-lg shadow w-full" />
+        <img src={ogImagePath} alt={title} class="main-image rounded-lg shadow w-full" />
         <h1 class="mt-[2rem] mb-[0.25em]">{title}</h1>
         <div class="flex">
           <time class="block mb-[1.5em] text-text-muted">{formattedDate}</time>

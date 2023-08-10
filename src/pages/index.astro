@@ -6,7 +6,7 @@ import AboutTheTheme from "../components/AboutTheTheme.astro";
 import BlogCards from "src/components/BlogCards.astro";
 import { SITE_TITLE } from "../config";
 import TagCards from "src/components/TagCards.astro";
-
+import SearchBox from "src/components/SearchBox.astro";
 ---
 
 <PageLayout>
@@ -14,6 +14,11 @@ import TagCards from "src/components/TagCards.astro";
   <Fragment slot="main">
     <Intro />
     <!-- <TagCards tags="python" /> -->
+    <SearchBox />
     <BlogCards />
+    <TagCards tag="python" />
+
   </Fragment>
 </PageLayout>
+
+
