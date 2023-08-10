@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf dist",
-    "postbuild": "pagefind --source dist/"
+    "postbuild": "pagefind --source dist/",
+    "test": "astro build && npm run postbuild && astro preview"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
