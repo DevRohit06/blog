@@ -11,10 +11,10 @@
         zero_results: "Couldn't find [SEARCH_TERM]",
       },
       debounceTimeoutMs: 500,
-    //   processResult: function (result) {
-    //     result.meta.image = someCustomFunction(result.meta.image);
-    //     return result;
-    // }
+      processResult: function (result) {
+        result.meta.image = someCustomFunction(result.meta.image);
+        return result;
+    }
     });
   });
 
@@ -34,5 +34,12 @@
     --pagefind-ui-border: #152028;
     --pagefind-ui-tag: #152028;
   }
-  --pagefind-ui-text: #152028 ;
+  .light {
+    --pagefind-ui-primary: #152028;
+    --pagefind-ui-text: #152028;
+    --pagefind-ui-background: #eeeeee;
+    --pagefind-ui-border: #eeeeee;
+    --pagefind-ui-tag: #eeeeee;
+  }
+
 </style>
