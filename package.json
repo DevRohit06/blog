@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf dist",
-    "postbuild": "pagefind --source .vercel/output/static",
+    "postbuild": "pagefind --source dist/",
     "test": "astro build && npm run postbuild && vercel deploy --prebuilt"
   },
   "dependencies": {

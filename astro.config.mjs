@@ -54,7 +54,7 @@ export default defineConfig({
     },
     gfm: false
   })],
-  adapter: vercel({
-    analytics: true
-  })
+  // adapter: vercel({
+  //   analytics: true
+  // })
 });
