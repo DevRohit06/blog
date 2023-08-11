@@ -13,7 +13,7 @@ import tailwind from "@astrojs/tailwind";
 */
 import mdx from "@astrojs/mdx";
 import remarkToc from 'remark-toc';
-
+import vercel from "@astrojs/vercel/static";
 const SERVER_PORT = 3000;
 // the url to access your blog during local development
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
@@ -34,6 +34,7 @@ if (isBuild) {
 // https://astro.build/config
 export default defineConfig({
   addPageExtension: '.mdx',
+
   server: {
     port: SERVER_PORT
   },
@@ -42,12 +43,18 @@ export default defineConfig({
     config: {
       applyBaseStyles: false
     }
-  }),
-  mdx({
+  }), mdx({
     syntaxHighlight: 'shiki',
-    shikiConfig: { theme: 'dracula' },
+    shikiConfig: {
+      theme: 'dracula'
+    },
     remarkPlugins: [remarkToc],
-    remarkRehype: { footnoteLabel: 'Footnotes' },
-    gfm: false,
-  }),]
+    remarkRehype: {
+      footnoteLabel: 'Footnotes'
+    },
+    gfm: false
+  })],
+  adapter: vercel({
+    analytics: true
+  })
 });

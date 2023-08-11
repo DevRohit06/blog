@@ -4,6 +4,7 @@ import { blog } from "../lib/markdoc/frontmatter.schema";
 import PageLayout from "../layouts/PageLayout.astro";
 import PageMeta from "../components/PageMeta.astro";
 import { SITE_TITLE } from "../config";
+
 const posts = await readAll({
   directory: "blog",
   frontmatterSchema: blog,
@@ -22,7 +23,7 @@ const sortedPosts = posts
 <section slot="main" class="mx-auto">
    <div class="flex items-center justify-between">
     <h1 class="font-semibold md:text-3xl mb-4 p-2">Latest Blogs</h1>
-    <a href="/blog" class="unset mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent font-semibold text-sm">View more</a>
+    <a href="/blogs" class="unset mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent font-semibold text-sm">View more</a>
    </div>
     <div class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start">
       {

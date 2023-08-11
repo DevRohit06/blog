@@ -5,7 +5,7 @@ const baseSchema = z.object({
   featured: z.boolean().default(false),
   ogImagePath: z.optional(z.string()),
   tags: z.array(z.string()).default([]),
-  language: z.optional(z.string()),
+  search: z.optional(z.string()),
   description: z.optional(z.string()),
   author: z.optional(z.string()),
   title: z.string({

@@ -1,0 +1,105 @@
+---
+import { blog } from "src/lib/markdoc/frontmatter.schema";
+import { readAll } from "src/lib/markdoc/read";
+import PageMeta from "../../components/PageMeta.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { SITE_TITLE } from "src/config";
+import TagCards from "../../components/TagCards.astro"
+//  const { search } = Astro.params;
+//  const data = decodeURIComponent(search);  
+
+ const posts = await readAll({
+   directory: "blog",
+   frontmatterSchema: blog,
+ });
+
+ let counter = 0;
+
+export async function getStaticPaths() {
+  const posts = await readAll({
+    directory: "blog",
+    frontmatterSchema: blog,
+  });
+
+  const filteredPosts = posts
+    .filter((p) => p.frontmatter.draft !== true)
+    .filter(({ frontmatter }) => !frontmatter.external);
+
+  return filteredPosts.map((post) => {
+    return { params: { search: post.frontmatter.search} };
+  });
+}
+const { search } = Astro.params;
+const data = decodeURIComponent(search)
+const sortedPosts = posts.filter((p) => {
+   if (p.frontmatter.tags.includes(data)) {
+     return p;
+   }
+ });
+---
+
+ <PageLayout>
+     <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
+       <section slot="main" class="mx-auto mt-8">
+         <div class="flex items-center justify-between">
+           <h1 class="font-semibold md:text-3xl mb-4 p-2">{data}</h1>
+           <a
+             href=`/blog?q=${data}`
+             class="unset mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent font-semibold text-sm"
+             >View more</a
+           >
+         </div>
+         <div
+           class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start"
+         >
+           {
+             sortedPosts.slice().map((post) => {
+               const formattedDate = new Date(
+                 post.frontmatter.date
+               ).toLocaleDateString("en-us", {
+                 year: "numeric",
+                 month: "short",
+                 day: "numeric",
+               });
+               {
+                 if (counter < 3) {
+                   return (
+                     <article class="w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+                       <a href={`/blog/${post.slug}`}>
+                         {post.frontmatter.ogImagePath && (
+                           <div class="absolute inset-0">
+                             <img
+                               src={post.frontmatter.ogImagePath}
+                               alt={post.frontmatter.title}
+                               class=" inset-0 w-full h-full object-cover opacity-50"
+                             />
+                           </div>
+                         )}
+
+                         <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 w-full h-full">
+                           <div class="p-4 sm:p-6">
+                             <time
+                               datetime="2022-10-10"
+                               class="block text-xs text-white/90 mb-4"
+                             >
+                               {formattedDate}
+                             </time>
+
+                             <a href={`/blog/${post.slug}`}>
+                               <h3 class="mt-0.5 text-xl text-white">
+                                 {post.frontmatter.title}
+                               </h3>
+                             </a>
+                           </div>
+                         </div>
+                       </a>
+                     </article>
+                   );
+                 }
+                 counter++;
+               }
+             })
+           }
+         </div>
+       </section>
+ </PageLayout>

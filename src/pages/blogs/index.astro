@@ -1,10 +1,11 @@
 ---
-import { readAll } from "../lib/markdoc/read";
-import { blog } from "../lib/markdoc/frontmatter.schema";
-import PageLayout from "../layouts/PageLayout.astro";
-import PageMeta from "../components/PageMeta.astro";
-import { SITE_TITLE } from "../config";
+import { readAll } from "../../lib/markdoc/read";
+import { blog } from "../../lib/markdoc/frontmatter.schema";
+import PageLayout from "../../layouts/PageLayout.astro";
+import PageMeta from "../../components/PageMeta.astro";
+import { SITE_TITLE } from "../../config";
 import SearchBox from "src/components/SearchBox.astro";
+import { createTransitionScope } from "astro/dist/runtime/server";
 
 const posts = await readAll({
   directory: "blog",
@@ -24,7 +25,7 @@ const sortedPosts = posts
   <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
   <section slot="main" class="mx-auto">
     <h1 class="font-bold text-center text-6xl mb-2">Blogs</h1>
-    <p class="text-base text-center mb-8 ">All The Blogs at one Place :)</p>
+    <p class="text-base text-center mb-8">All The Blogs at one Place :)</p>
     <div class="py-2">
       <SearchBox />
     </div>
@@ -41,17 +42,15 @@ const sortedPosts = posts
           return (
             <article class="w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
               <a href={`/blog/${post.slug}`}>
-                {
-                    post.frontmatter.ogImagePath && (
-                        <div class="absolute inset-0">
-                        <img
-                            src={post.frontmatter.ogImagePath}
-                            alt={post.frontmatter.title}
-                            class=" inset-0 w-full h-full object-cover opacity-50"
-                        />
-                        </div>
-                    )
-                }
+                {post.frontmatter.ogImagePath && (
+                  <div class="absolute inset-0">
+                    <img
+                      src={post.frontmatter.ogImagePath}
+                      alt={post.frontmatter.title}
+                      class=" inset-0 w-full h-full object-cover opacity-50"
+                    />
+                  </div>
+                )}
 
                 <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 w-full h-full">
                   <div class="p-4 sm:p-6">
@@ -81,4 +80,11 @@ const sortedPosts = posts
     .test {
     }
   </style>
+
+  <script>
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const text = params.q;
+    export { text };
+  </script>
 </PageLayout>
