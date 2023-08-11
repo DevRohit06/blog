@@ -41,13 +41,9 @@ const sortedPosts = posts.filter((p) => {
  <PageLayout>
      <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
        <section slot="main" class="mx-auto mt-8">
-         <div class="flex items-center justify-between">
-           <h1 class="font-semibold md:text-3xl mb-4 p-2">{data}</h1>
-           <a
-             href=`/blog?q=${data}`
-             class="unset mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent font-semibold text-sm"
-             >View more</a
-           >
+         <div class="items-center justify-between">
+           <h1 class="font-black text-center text-5xl mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent">{data}</h1>
+            <p class="mb-8 text-center font-semibold">This Page contains all the blogs related to {data}</p>
          </div>
          <div
            class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start"
