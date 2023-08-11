@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --source dist/",
+    "build": "astro build && pagefind --source dist/ ",
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf dist",
     "postbuild": "pagefind --source .vercel/output/static",
-    "test": "astro build && npm run postbuild"
+    "test": "astro build && npm run postbuild && vercel deploy --prebuilt"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
