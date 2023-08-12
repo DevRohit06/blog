@@ -1,6 +1,8 @@
 ---
 import { getAuthors, getSkills } from "src/lib/Authors";
 const { name } = Astro.props;
+const url = Astro.url.href;
+const encodedUrl = encodeURIComponent(url);
 const data = getAuthors(name);
 const skills = getSkills(name);
 
@@ -38,13 +40,22 @@ const skills = getSkills(name);
     </div>
   </div>
   <div class="dark:bg-[#0f1824] rounded-xl bg-slate-300 flex items-center justify-center">
-    <div class="px-2 flex py-8 text-center">
-      <button class=" flex unset text-sm text-slate-400 px-4 items-center text-center" onclick="window.print()">
+    <div class="px-2 w-full flex py-4 text-center justify-between items-center ">
+     <div>
+      <button class="flex unset text-sm text-slate-400 px-4 items-center text-center" onclick="
+      window.print()
+      ">
         <svg class="dark:fill-white fill-black mr-1" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
         Print Blog</button>
+     </div>
+     <div>
+      
+          <div class="flex items-center flex-1">
+            <h1 class="text-sm mr-2">Share on</h1>
+            <a class="mr-2 fa-brands fa-facebook" href=`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&amp;src=sdkpreparse` class="fb-xfbml-parse-ignore"></a>
+            <a class="mr-2 fa-brands fa-twitter" href=""></a>
+          </div>
+     </div>
     </div>
   </div>
 </div>
-<script>
-
-</script>
