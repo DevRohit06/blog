@@ -12,11 +12,13 @@ const posts = await readAll({
 });
 
 let counter = 0;
-const sortedPosts = posts.filter((p) => {
-  if(p.frontmatter.tags.includes(tag)){
-    return p;
-  }
-});
+const sortedPosts = posts.filter((p) => 
+  p.frontmatter.tags.includes(tag)
+).sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );
 
 ---
 

@@ -31,11 +31,13 @@ export async function getStaticPaths() {
 }
 const { search } = Astro.params;
 const data = decodeURIComponent(search)
-const sortedPosts = posts.filter((p) => {
-   if (p.frontmatter.tags.includes(data)) {
-     return p;
-   }
- });
+const sortedPosts = posts.filter((p) => 
+  p.frontmatter.tags.includes(data)
+).sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );;
 ---
 
  <PageLayout>
