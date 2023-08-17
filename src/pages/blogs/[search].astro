@@ -1,10 +1,13 @@
 ---
+
+import "astro-breadcrumbs/breadcrumbs.css";
 import { blog } from "src/lib/markdoc/frontmatter.schema";
 import { readAll } from "src/lib/markdoc/read";
 import PageMeta from "../../components/PageMeta.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 import { SITE_TITLE } from "src/config";
 import TagCards from "../../components/TagCards.astro"
+import { Breadcrumbs } from "astro-breadcrumbs";
 //  const { search } = Astro.params;
 //  const data = decodeURIComponent(search);  
 
@@ -43,6 +46,40 @@ const sortedPosts = posts.filter((p) =>
  <PageLayout>
      <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
        <section slot="main" class="mx-auto mt-8">
+        <div class="unset text-slate-400 pb-4">
+          <Breadcrumbs>
+            <svg
+              slot="index"
+              aria-label="Home Page"
+              class="unset"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+              </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              class="unset"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </Breadcrumbs>
+        </div>
          <div class="items-center justify-between">
            <h1 class="font-black text-center text-5xl mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent">{data}</h1>
             <p class="mb-8 text-center font-semibold">This Page contains all the blogs related to {data}</p>

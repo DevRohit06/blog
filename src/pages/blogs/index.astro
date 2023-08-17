@@ -6,7 +6,9 @@ import PageMeta from "../../components/PageMeta.astro";
 import { SITE_TITLE } from "../../config";
 import SearchBox from "src/components/SearchBox.astro";
 import { createTransitionScope } from "astro/dist/runtime/server";
+import { Breadcrumbs } from "astro-breadcrumbs";
 
+import "astro-breadcrumbs/breadcrumbs.css";
 const posts = await readAll({
   directory: "blog",
   frontmatterSchema: blog,
@@ -24,11 +26,45 @@ const sortedPosts = posts
 <PageLayout>
   <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
   <section slot="main" class="mx-auto">
-    <h1 class="font-bold text-center text-6xl mb-2">Blogs</h1>
-    <p class="text-base text-center mb-8">All The Blogs at one Place :)</p>
-    <div class="py-2">
-      <SearchBox />
+    <div class="unset flex items-center text-slate-400 pb-4">
+      <Breadcrumbs>
+        <svg
+          slot="index"
+          aria-label="Home Page"
+          class="unset"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+          </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+          slot="separator"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          class="unset"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </Breadcrumbs>
+      <div class="py-2">
+        <SearchBox />
+      </div>
     </div>
+   
+
     <div class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start">
       {
         sortedPosts.map((post) => {
