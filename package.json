@@ -10,7 +10,8 @@
     "astro": "astro",
     "clean": "rm -rf dist",
     "postbuild": "pagefind --source dist/",
-    "test": "astro build && npm run postbuild && vercel deploy --prebuilt"
+    "test": " astro build && npm run postbuild && npm run preview",
+    "nodemon":"nodemon run test"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
