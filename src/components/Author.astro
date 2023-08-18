@@ -1,9 +1,9 @@
 ---
-import { getAuthors, getSkills } from "src/lib/Authors";
+import { getAuthorsByName, getSkills } from "src/lib/Authors";
 const { name } = Astro.props;
 const url = Astro.url.href;
 const encodedUrl = encodeURIComponent(url);
-const data = getAuthors(name);
+const data = getAuthorsByName(name);
 const skills = getSkills(name);
 
 

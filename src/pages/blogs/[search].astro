@@ -16,7 +16,7 @@ import { Breadcrumbs } from "astro-breadcrumbs";
    frontmatterSchema: blog,
  });
 
- let counter = 0;
+
 
 export async function getStaticPaths() {
   const posts = await readAll({
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   });
 }
 const { search } = Astro.params;
-const data = decodeURIComponent(search)
+const data = decodeURIComponent(search!);
 const sortedPosts = posts.filter((p) => 
   p.frontmatter.tags.includes(data)
 ).sort(
@@ -84,6 +84,27 @@ const sortedPosts = posts.filter((p) =>
            <h1 class="font-black text-center text-5xl mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent">{data}</h1>
             <p class="mb-8 text-center font-semibold">This Page contains all the blogs related to {data}</p>
          </div>
+         <!-- <div>
+          {
+            sortedPosts.slice(0,1).map((post) => {
+               const formattedDate = new Date(
+                 post.frontmatter.date
+               ).toLocaleDateString("en-us", {
+                 year: "numeric",
+                 month: "short",
+                 day: "numeric",
+               });
+               return (
+                <div class="block sm:block md:hidden backgroundImg w-full h-screen rounded-xl" style={`background-image: url(${post.frontmatter.ogImagePath}); background-size: cover`}>
+                  
+                  
+                </div>
+
+
+               )
+          })
+        }
+         </div> -->
          <div
            class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start"
          >
@@ -96,8 +117,6 @@ const sortedPosts = posts.filter((p) =>
                  month: "short",
                  day: "numeric",
                });
-               {
-                 if (counter < 3) {
                    return (
                      <article class="border-2 border-slate-500 border-opacity-30 w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
                        <a href={`/blog/${post.slug}`}>
@@ -130,10 +149,8 @@ const sortedPosts = posts.filter((p) =>
                        </a>
                      </article>
                    );
-                 }
-                 counter++;
                }
-             })
+             )
            }
          </div>
        </section>

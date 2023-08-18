@@ -1,0 +1,63 @@
+---
+import PageMeta from "../../components/PageMeta.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { ClassText } from "../../pages/privacy.astro"
+import {getAuthors} from "../../lib/Authors"
+const data = getAuthors()
+---
+
+<PageLayout>
+    <PageMeta title="Authors | DevBlogs" slot="meta"/>
+    <Fragment slot="main">
+        <section class="">
+            <br>
+            <br>
+            <h1 class=`text-4xl sm:text-5xl font-black ${ClassText} text-center`>Meet Our Team</h1>
+            <p class="mt-4 text-center">
+                At DevBlogs, we're proud to have a diverse team of expert authors who are passionate about programming and dedicated to sharing their knowledge with you. Each of our authors brings a unique perspective and set of skills to our platform, ensuring that you receive comprehensive and well-rounded insights into the world of coding.
+            </p>
+            <div class="mt-24">
+                <div class="grid mx-auto gap-5 sm:grid-cols-2 lg:grid-cols-2 lg:max-w-screen-sm ">
+                    {
+                        data && data.map((items) => {
+                            return (
+                            <div>
+                      <div  class="relative pb-56 mb-4 rounded shadow lg:pb-64">
+                        <img class="absolute object-cover w-full h-full rounded" src={items.profile} alt="Person" />
+                      </div>
+                      <div class="flex flex-row sm:flex-col justify-between sm:text-center">
+                       <div>
+                        <a href={`/author/${items.nickname}`} class="text-xl font-bold">{items.name}</a>
+                        <p class="mb-1 text-base text-gray-800 dark:text-gray-400">{items.role}</p></div>
+                        <div class="flex items-center space-x-3 sm:justify-center">
+                          <a href={items.links.instagram} class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                          </a>
+                          <a href={items.links.github} class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                            )
+                        })
+                    }
+    
+                </div>
+            </div>
+            <div class="mt-20">
+                <h1 class=`${ClassText} text-4xl font-black text-center`>Join Us on our Journey</h1>
+                <p class="mt-4 text-gray-800 dark:text-gray-400 text-base">
+                  These are just a few of the talented authors contributing to <b>DevBlogs</b>. We're excited to have them on board, sharing their expertise and passion for programming with you. As you explore our platform, you'll have the opportunity to learn from a variety of perspectives and dive deep into the fascinating world of coding.
+                  <br>
+                  <br>
+Connect with our authors on <b>Social media</b> and stay up-to-date with their latest articles, insights, and programming tips. We're here to support you on your coding journey, no matter where you're starting from.
+                  <br>
+                  <br>
+Happy coding! <br>
+The DevBlogs Team
+</p>
+            </div>
+        </section>
+    </Fragment>
+</PageLayout>

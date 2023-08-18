@@ -1,0 +1,20 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import PageMeta from "../../components/PageMeta.astro";
+import { getAuthors, getAuthorsByNickname } from "../../lib/Authors";
+export async function getStaticPaths() {
+    const data = getAuthors();
+    return data.map((user) => {
+        return {params: {author: user.nickname}}
+    })
+    
+}
+const { author } = Astro.params;
+const Author = getAuthorsByNickname(author!);
+---
+<PageLayout>
+    <PageMeta title={`${Author.name} | DevBlogs`} slot="meta"/>
+    <Fragment slot="main">
+
+    </Fragment>
+</PageLayout>

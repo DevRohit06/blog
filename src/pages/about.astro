@@ -1,0 +1,42 @@
+---
+import PageMeta from "../components/PageMeta.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import Header from "src/components/Header.astro";
+import { Heading, ClassText} from "./privacy.astro";
+---
+
+<PageLayout>
+    <PageMeta title="About | DevBlogs" slot="meta"/>
+        <Fragment slot="main">
+            <section class="">
+                <h1 class=` ${ClassText} text-3xl sm:text-5xl font-black mt-12 text-start sm:text-center `>About DevBlogs: Your Path to Programming Excellence</h1>
+                <p class="mt-4">Welcome to <b>DevBlogs</b>, your ultimate online resource for aspiring programmers and coding enthusiasts. Whether you're a curious beginner taking your first steps into the world of coding or an experienced developer seeking to refine your skills, DevBlogs is here to guide you through your programming journey.</p>
+                <h1 class=` ${ClassText} mt-12 text-3xl font-bold mt-12`>Our Mission</h1>
+                <p class="mt-4">
+                    At DevBlogs, our mission is to demystify programming and empower learners of all levels to master the art of coding. We believe that everyone has the potential to become a proficient programmer, regardless of their background or prior experience. Our platform is designed to provide you with clear, concise, and comprehensive resources that make learning programming languages and concepts both enjoyable and accessible.
+                </p>
+                <h1 class=` ${ClassText} mt-12 text-3xl font-bold mt-12`>What We Offer</h1>
+                <ul class="mt-4">
+                    <li><b>In-Depth Tutorials:</b> Our detailed tutorials cover a wide range of programming languages, frameworks, and technologies. From Python to JavaScript, from web development to machine learning, we've got you covered.</li>
+                    <li><b>Step-by-Step Guides:</b> We break down complex programming concepts into manageable steps, allowing you to learn at your own pace and build a solid foundation.</li>
+                    <li><b>Practical Examples:</b> Learning by doing is crucial in programming. We provide practical examples and coding exercises to help you apply what you've learned and gain real-world experience.</li>
+                    <li><b>Community Interaction:</b> Connect with fellow learners through our interactive community forums. Share your insights, ask questions, and collaborate on coding projects to enhance your skills.</li>
+                </ul>
+                <h1 class=` ${ClassText} mt-12 text-3xl font-bold mt-12`>Meet Our Team</h1>
+                <p class="mt-4">
+                    DevBlogs was founded by a group of passionate developers and educators who understand the challenges of learning programming firsthand. We're dedicated to making your learning experience enjoyable and effective.
+                </p>
+                <ul class="mt-2">
+                    <li>
+                        <b>Rohit Kushwaha:</b> With a background in Web Development, I'm committed to making programming accessible to all. I'm excited to share my expertise and help you achieve your coding goals.
+                    </li>
+                </ul>
+                <h1 class=` ${ClassText} mt-12 text-3xl font-bold mt-12`>Join the DevBlogs Community</h1>
+                <p class="mt-4">
+                    We're thrilled to have you on board. Whether you're taking your first coding steps or looking to expand your programming horizons, DevBlogs is your trusted companion. Join our community of learners, explore our tutorials, and embark on an exciting journey towards programming excellence.
+                    <br>
+                    Have questions, suggestions, or feedback? Reach out to us at <b><a href="mailto:contact@devblogs.xyz">contact@devblogs.xyz</a></b>
+                </p>
+            </section>
+        </Fragment>
+</PageLayout>
