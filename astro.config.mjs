@@ -44,10 +44,7 @@ export default defineConfig({
       applyBaseStyles: false
     }
   }), mdx({
-    syntaxHighlight: 'shiki',
-    shikiConfig: {
-      theme: 'dracula'
-    },
+
     remarkPlugins: [remarkToc],
     remarkRehype: {
       footnoteLabel: 'Footnotes'

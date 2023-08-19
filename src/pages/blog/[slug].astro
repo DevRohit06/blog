@@ -31,14 +31,13 @@ const { content, frontmatter } = await readOne({
   slug,
   frontmatterSchema: blog,
 });
-
 const ogImageAbsoluteUrl =
   frontmatter.external !== true && frontmatter.ogImagePath
     ? new URL(frontmatter.ogImagePath, SITE_URL).toString()
     : undefined;
 ---
 
-<ContentLayout title={frontmatter.title} date={frontmatter.date} ogImagePath={frontmatter.ogImagePath} author={frontmatter.author}>
+<ContentLayout title={frontmatter.title} date={frontmatter.date} ogImagePath={frontmatter.ogImagePath} author={frontmatter.author} tags={frontmatter.tags}>
   <BlogPostMeta
     title={frontmatter.title}
     description={frontmatter.external ? undefined : frontmatter.description}

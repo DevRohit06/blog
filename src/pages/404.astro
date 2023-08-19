@@ -1,0 +1,21 @@
+---
+import PageLayout from "src/layouts/PageLayout.astro";
+import PageMeta from "src/components/PageMeta.astro";
+import { ClassText } from "./privacy.astro";
+---
+<PageLayout>
+    <PageMeta title="OOps! You Lost" slot="meta" />
+    <Fragment slot="main">
+    <section class="h-xl">
+        <div class=" flex flex-col items-center">
+            <h1 class=`sm:text-[200px] text-[150px] font-bold text-center ${ClassText}` style="">404</h1>
+            <p class="text-center -mt-16">Oops!, You Lost </p>
+            <div class="flex gap-4 pt-8">
+                <button onclick="window.history.back()" class=`font-bold px-3 py-1  rounded-xl bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main text-black`>Back</button>
+                <a href="/" class="font-bold unset px-3 py-1 rounded-xl bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main text-black">Home</a>
+            </div>
+           </div>
+    </section>
+
+    </Fragment>
+</PageLayout>
