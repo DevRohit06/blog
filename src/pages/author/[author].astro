@@ -10,13 +10,24 @@ export async function getStaticPaths() {
     
 }
 const { author } = Astro.params;
-const Author = getAuthorsByNickname(author!);
+const user = getAuthorsByNickname(author!);
+console.log(user.profile)
 ---
 <PageLayout>
-    <PageMeta title={`${Author.name} | DevBlogs`} slot="meta"/>
-    <Fragment slot="main">
-        <section>
+    <PageMeta title={`${user.name} | DevBlogs`} slot="meta"/>
+    <section slot="main">
+        <div class="mt-24 flex flex-col sm:flex-row justify-center items-center">
+            <img class="rounded-xl w-52 " src={user.profile} alt="">
+          <div class="flex flex-col ml-0 sm:ml-8">
+            <h1 class="mt-4 text-2xl sm:text-4xl font-bold">{user.name}</h1>
+            <p class="mt-2 text-center text-lg dark:text-slate-400">
+                {user.description}
+            </p>
             
-        </section>
-    </Fragment>
+            <div class="flex items-end">
+             <h1 class="dark:text-slate-400">Social Links:</h1>
+            </div>
+          </div>
+        </div>
+    </section>
 </PageLayout>

@@ -6,12 +6,14 @@ export const Authors = [
         name: "Rohit Kushwaha",
         nickname: "rohitk06",
         email: "technicalrohit06@gmail.com",
+        description: "Just a boy trying to build amazing websites and products for Businesses",
         role: "Founder & Developer",
         skills: ["Web Developer", "Freelancer"],
         profile: "https://i.ibb.co/3s6wzHv/1675459090047-1.jpg",
         links: {
             github: "https://github.com/DevRohit06",
-            instagram: "https://www.instagram.com/rohitk.06"
+            instagram: "https://www.instagram.com/rohitk.06",
+            website: "https://rohitk06.vercel.app"
 
         }
     },
