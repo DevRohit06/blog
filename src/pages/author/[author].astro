@@ -2,6 +2,8 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import PageMeta from "../../components/PageMeta.astro";
 import { getAuthors, getAuthorsByNickname } from "../../lib/Authors";
+import { readAll } from "../../lib/markdoc/read";
+import { blog } from "../../lib/markdoc/frontmatter.schema";
 export async function getStaticPaths() {
     const data = getAuthors();
     return data.map((user) => {
@@ -11,7 +13,19 @@ export async function getStaticPaths() {
 }
 const { author } = Astro.params;
 const user = getAuthorsByNickname(author!);
-console.log(user.profile)
+
+const { tag } = Astro.props
+const posts = await readAll({
+  directory: "blog",
+  frontmatterSchema: blog,
+});
+const sortedPosts = posts.filter((p) => 
+  p.frontmatter.author === author
+).sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );
 ---
 <PageLayout>
     <PageMeta title={`${user.name} | DevBlogs`} slot="meta"/>
@@ -19,15 +33,75 @@ console.log(user.profile)
         <div class="mt-24 flex flex-col sm:flex-row justify-center items-center">
             <img class="rounded-xl w-52 " src={user.profile} alt="">
           <div class="flex flex-col ml-0 sm:ml-8">
-            <h1 class="mt-4 text-2xl sm:text-4xl font-bold">{user.name}</h1>
-            <p class="mt-2 text-center text-lg dark:text-slate-400">
+            <h1 class="mt-4 text-2xl sm:text-4xl font-bold text-center sm:text-start">{user.name}</h1>
+            <p class="mt-2 text-center sm:text-start text-lg dark:text-slate-400">
                 {user.description}
             </p>
             
-            <div class="flex items-end">
-             <h1 class="dark:text-slate-400">Social Links:</h1>
+
+            <div class="text-center flex gap-5 pt-4  justify-center sm:justify-start">
+                <a class="flex unset  items-center px-3 py-1.5 bg-black rounded-xl" href={user.links.github}><i class="text-2xl text-white fa-brands fa-github"></i></a>
+                <a class="flex unset px-3 py-1.5 bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-xl" href={user.links.instagram}><i class="text-white text-2xl fa-brands fa-instagram"></i></a>
+                <a href={user.links.website} class="flex unset px-3 py-1.5 bg-black dark:bg-white rounded-xl">
+                    <img class="w-6" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="">
+                </a>
+
             </div>
           </div>
+        </div>
+        <div>
+            <div class="pt-28">
+                <h1 class="text-3xl font-black py-4 text-center">Blogs By {user.name}</h1>
+            </div>
+            <div class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start">
+                {
+                  sortedPosts.slice(0, 6).map((post) => {
+                    const formattedDate = new Date(
+                      post.frontmatter.date
+                    ).toLocaleDateString("en-us", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    });
+                  {
+                          return (
+                      <article class="border-2 border-slate-500 border-opacity-30 w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+                        <a href={`/blog/${post.slug}`}>
+                          {
+                              post.frontmatter.ogImagePath && (
+                                  <div class="absolute inset-0">
+                                  <img
+                                      src={post.frontmatter.ogImagePath}
+                                      alt={post.frontmatter.title}
+                                      class=" inset-0 w-full h-full object-cover opacity-50"
+                                  />
+                                  </div>
+                              )
+                          }
+          
+                          <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 w-full h-full">
+                            <div class="p-4 sm:p-6">
+                              <time
+                                datetime="2022-10-10"
+                                class="block text-xs text-white/90 mb-4"
+                              >
+                                {formattedDate}
+                              </time>
+          
+                              <a href={`/blog/${post.slug}`}>
+                                <h3 class="mt-0.5 text-xl text-white">
+                                  {post.frontmatter.title}
+                                </h3>
+                              </a>
+                            </div>
+                          </div>
+                        </a>
+                      </article>
+                    );
+                      }
+                  })
+                }
+              </div>
         </div>
     </section>
 </PageLayout>

@@ -10,8 +10,6 @@ const posts = await readAll({
   directory: "blog",
   frontmatterSchema: blog,
 });
-
-let counter = 0;
 const sortedPosts = posts.filter((p) => 
   p.frontmatter.tags.includes(tag)
 ).sort(
@@ -38,7 +36,6 @@ const sortedPosts = posts.filter((p) =>
             day: "numeric",
           });
         {
-            if (counter < 3) {
                 return (
             <article class="border-2 border-slate-500 border-opacity-30 w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
               <a href={`/blog/${post.slug}`}>
@@ -74,8 +71,6 @@ const sortedPosts = posts.filter((p) =>
             </article>
           );
             }
-            counter++;
-        }
         })
       }
     </div>
