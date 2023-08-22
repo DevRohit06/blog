@@ -11,7 +11,7 @@
     "clean": "rm -rf dist",
     "postbuild": "pagefind --source dist/",
     "test": " astro build && npm run postbuild && npm run preview",
-    "nodemon":"nodemon run test"
+    "nodemon": "nodemon run test"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
@@ -35,6 +35,7 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^1.2.3",
     "prettier-plugin-astro": "^0.7.2",
     "sass": "^1.64.2",
     "typescript": "^4.9.4"
