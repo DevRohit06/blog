@@ -4,52 +4,58 @@ import { blog } from "../lib/markdoc/frontmatter.schema";
 import PageLayout from "../layouts/PageLayout.astro";
 import PageMeta from "../components/PageMeta.astro";
 import { SITE_TITLE } from "../config";
+import { getReadingTime } from "../lib/readingtime.js";
 
-const { tag } = Astro.props
+const { tag } = Astro.props;
 const posts = await readAll({
   directory: "blog",
   frontmatterSchema: blog,
 });
-const sortedPosts = posts.filter((p) => 
-  p.frontmatter.tags.includes(tag)
-).sort(
+const sortedPosts = posts
+  .filter((p) => p.frontmatter.tags.includes(tag))
+  .sort(
     (a, b) =>
       new Date(b.frontmatter.date).valueOf() -
       new Date(a.frontmatter.date).valueOf()
   );
-
 ---
 
 <section slot="main" class="mx-auto mt-8">
-   <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between">
     <h1 class="font-semibold md:text-3xl mb-4 p-2">{tag}</h1>
-    <a href=`/blogs/${tag}` class="unset mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent font-semibold text-sm">View more</a>
-   </div>
-    <div class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start">
-      {
-        sortedPosts.slice(0, 3).map((post) => {
-          const formattedDate = new Date(
-            post.frontmatter.date
-          ).toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          });
+    <a
+      href=`/blogs/${tag}`
+      class="unset mb-4 p-2 bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent font-semibold text-sm"
+      >View more</a
+    >
+  </div>
+  <div class="gap-4 flex flex-1 flex-wrap justify-center xl:justify-start">
+    {
+      sortedPosts.slice(0, 3).map((post) => {
+        const formattedDate = new Date(
+          post.frontmatter.date
+        ).toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+
         {
-                return (
-            <article class="border-2 border-slate-500 border-opacity-30 w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+          return (
+            <article
+              transition:persist
+              class="border-2 border-slate-500 border-opacity-30 w-full md:w-5/6 xl:w-96 relative font-normal bg-black overflow-hidden rounded-lg shadow transition hover:shadow-lg"
+            >
               <a href={`/blog/${post.slug}`}>
-                {
-                    post.frontmatter.ogImagePath && (
-                        <div class="absolute inset-0">
-                        <img
-                            src={post.frontmatter.ogImagePath}
-                            alt={post.frontmatter.title}
-                            class=" inset-0 w-full h-full object-cover opacity-50"
-                        />
-                        </div>
-                    )
-                }
+                {post.frontmatter.ogImagePath && (
+                  <div class="absolute inset-0">
+                    <img
+                      src={post.frontmatter.ogImagePath}
+                      alt={post.frontmatter.title}
+                      class=" inset-0 w-full h-full object-cover opacity-50"
+                    />
+                  </div>
+                )}
 
                 <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 w-full h-full">
                   <div class="p-4 sm:p-6">
@@ -70,8 +76,8 @@ const sortedPosts = posts.filter((p) =>
               </a>
             </article>
           );
-            }
-        })
-      }
-    </div>
-  </section>
+        }
+      })
+    }
+  </div>
+</section>

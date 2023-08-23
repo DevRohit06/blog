@@ -5,6 +5,7 @@
 */
 
 // Import the global.css file here so that it is included on
+import { ViewTransitions } from 'astro:transitions';
 import "../styles/global.css";
 import "astro-breadcrumbs/breadcrumbs.css";
 import GoogleFont from "./GoogleFont.astro";
@@ -51,6 +52,7 @@ import { Breadcrumbs } from "astro-breadcrumbs";
     <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
 		<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
     <GoogleAnalytics />
+    <ViewTransitions />
   </head>
 
   <body class="">
@@ -100,19 +102,6 @@ import { Breadcrumbs } from "astro-breadcrumbs";
         </div>
         <slot name="content" />
       </section>
-      <!-- <section>
-        <h1 class="text-xl font-bold">Tags</h1>
-        <div class="flex gap-5">
-          {
-            tags && tags.map((items: any) => {
-              console.log(items)
-              return (
-                  <h1 class="px-1.5 py-0.5 dark:bg-black rounded-xl bg-white text-base dark:text-gray-300 shadow-xl">{items}</h1>
-              )
-            })
-          }
-        </div>
-      </section> -->
       <Author name={author} />
     </main>
     <Footer />

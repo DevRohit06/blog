@@ -13,8 +13,10 @@ import partytown from "@astrojs/partytown";
   and leave it empty or use localhost URL. It won't break anything.
 */
 import mdx from "@astrojs/mdx";
-import remarkToc from 'remark-toc';
+import remarkToc from "remark-toc";
 import vercel from "@astrojs/vercel/static";
+import astroRemark from "@astrojs/markdown-remark";
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 const SERVER_PORT = 3000;
 // the url to access your blog during local development
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
@@ -29,37 +31,45 @@ if (isBuild) {
   BASE_URL = LIVE_URL;
 }
 
-
 // https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
-  addPageExtension: '.mdx',
-
+  experimental: {
+		viewTransitions: true
+	},
+  addPageExtension: ".mdx",
+  markdown: {
+    remarkPlugins: [],
+    rehypePlugins: [
+      rehypeHeadingIds,
+    ],
+  },
   server: {
-    port: SERVER_PORT
+    port: SERVER_PORT,
   },
   site: BASE_URL,
-  integrations: [sitemap(), tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), mdx({
-
-    remarkPlugins: [remarkToc],
-    remarkRehype: {
-      footnoteLabel: 'Footnotes'
-    },
-    gfm: false,
-   
-  }),
-  partytown({
-    // Adds dataLayer.push as a forwarding-event.
-    config: {
-      forward: ["dataLayer.push"],
-    },
-  }),
-],
+  integrations: [
+    sitemap(),
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+    mdx({
+      remarkPlugins: [[remarkToc, { heading: "contents"}] ],
+      remarkRehype: {
+        footnoteLabel: "Footnotes",
+      },
+      gfm: false,
+    }),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
 
   // adapter: vercel({
   //   analytics: true
