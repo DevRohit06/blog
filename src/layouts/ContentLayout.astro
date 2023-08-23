@@ -27,7 +27,7 @@ export interface Props {
 }
 
 const { title, date, ogImagePath, author, tags } = Astro.props;
-console.log(tags)
+console.log(tags);
 const formattedDate = new Date(date).toLocaleDateString("en-us", {
   year: "numeric",
   month: "short",
@@ -50,15 +50,13 @@ import { Breadcrumbs } from "astro-breadcrumbs";
     <FontAwesome />
     <GoogleAds />
     <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
-		<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+    <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
     <GoogleAnalytics />
     <!-- <ViewTransitions /> -->
-    
   </head>
 
   <body class="">
-    <Header/>
-
+    <Header />
     <main class="min-h-screen max-w-3xl mx-auto px-6 sm:px-8" id="main">
       <div class="unset text-slate-900 dark:text-white pb-4">
         <Breadcrumbs>
@@ -95,8 +93,11 @@ import { Breadcrumbs } from "astro-breadcrumbs";
         </Breadcrumbs>
       </div>
       <section class="blog-post prose max-w-none prose-sleek">
-        
-        <img src={ogImagePath} alt={title} class="main-image rounded-lg shadow w-full" />
+        <img
+          src={ogImagePath}
+          alt={title}
+          class="main-image rounded-lg shadow w-full"
+        />
         <h1 class="mt-[2rem] mb-[0.25em]">{title}</h1>
         <div class="flex">
           <time class="block mb-[1.5em] text-text-muted">{formattedDate}</time>
@@ -106,9 +107,8 @@ import { Breadcrumbs } from "astro-breadcrumbs";
       <Author name={author} />
     </main>
     <Footer />
-    <style>
-    </style>
-    
+    <style></style>
+
     <slot />
   </body>
 </html>
