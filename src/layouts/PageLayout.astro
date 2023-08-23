@@ -17,7 +17,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import GoogleAds from "./GoogleAds.astro";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
-import { ViewTransitions } from 'astro:transitions';
+// import { ViewTransitions } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
@@ -36,12 +36,13 @@ import { ViewTransitions } from 'astro:transitions';
     <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
 		<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
     <GoogleAnalytics />
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
+    
   </head>
 
   <body class="">
 
-    <Header />
+    <Header/>
     <main class="w-5/6 mx-auto" id="main">
       <slot name="main" />
     </main>
